@@ -36,3 +36,9 @@ params:
       name: "Threads"
       url: "https://www.threads.com/@StreamOfRon"
       handle: "@StreamOfRon"
+  giscus:
+    repo: "StreamOfRon/cloudswarm"
+    repoId: "R_kgDOULcxbQ"
+    category: "General"
+    categoryId: "DIC_kwDOULcxbc4DEslZ"
+  cfAnalyticsToken: "ad349240172c4901970f5a8262134247"

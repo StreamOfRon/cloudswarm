@@ -100,6 +100,42 @@ params:
   silently missing glyphs.
 - Links carry `rel="me"`, which is how Mastodon verifies profile links.
 
+## Comments & analytics
+
+Both are config-gated: absent config = nothing loads, no third-party calls.
+
+**Giscus** (comments via GitHub Discussions — free, readers sign in with
+GitHub). One-time setup:
+
+1. Repo **Settings → General → Discussions** → enable.
+2. Install the app: <https://github.com/apps/giscus> → *Only select
+   repositories* → `cloudswarm`.
+3. On <https://giscus.app>, enter `StreamOfRon/cloudswarm`; it prints four
+   values. Paste into `config.yaml`:
+
+   ```yaml
+   params:
+     giscus:
+       repo: "StreamOfRon/cloudswarm"
+       repoId: "R_kgDO..."          # from giscus.app
+       category: "Announcements"    # a Discussions category
+       categoryId: "DIC_kgDO..."    # from giscus.app
+   ```
+
+`layouts/partials/comments.html` then renders at the bottom of every post
+(`data-mapping: pathname` — one discussion per post URL).
+
+**Cloudflare Web Analytics** (free, cookieless, no banner needed): Cloudflare
+dashboard → *Web Analytics* → *Add site* → pick `cloudswarm.pages.dev` → copy
+the token → `config.yaml`:
+
+```yaml
+params:
+  cfAnalyticsToken: "0a1b2c3d..."
+```
+
+`layouts/partials/analytics.html` injects the beacon in `<head>` on every page.
+
 ## Reference
 
 | Path | Role |
@@ -111,5 +147,7 @@ params:
 | `assets/css/main.css` | the whole stylesheet (hand-rolled, no theme) |
 | `assets/icons/` | brand glyphs for `params.social` (Simple Icons, CC0) |
 | `layouts/partials/social.html` | renders contact links (footer + `{{< social >}}`) |
+| `layouts/partials/comments.html` | Giscus embed (only if `params.giscus` set) |
+| `layouts/partials/analytics.html` | CF Analytics beacon (only if `params.cfAnalyticsToken` set) |
 | `static/admin/` | Decap CMS loader + config |
 | `.github/workflows/deploy.yml` | build + deploy to Cloudflare Pages |
