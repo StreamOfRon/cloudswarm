@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # 15:45 UTC = 8:45 AM PDT (PST in winter: 7:45 AM — UTC crons don't track DST)
-    - cron: "45 15 * * *"
+    - cron: "45 8 * * *"
+      timezone: "America/Los_Angeles"
   workflow_dispatch:
 
 permissions:
