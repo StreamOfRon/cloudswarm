@@ -1,0 +1,18 @@
+{{- /* Contact links from site.Params.social. Args: dict "mode" "icons"|"list" (list = glyph + handle). */ -}}
+{{- $mode := "list" -}}
+{{- with .mode -}}{{ $mode = . -}}{{- end -}}
+{{- with site.Params.social -}}
+<nav class="social social-{{ $mode }}" aria-label="Elsewhere">
+  {{- range $entry := . }}
+  {{- $icon := resources.Get (printf "icons/%s.svg" $entry.id) }}
+  {{- if $icon }}
+  <a class="social-link" href="{{ $entry.url }}" rel="me" aria-label="{{ $entry.name }}" title="{{ $entry.name }}: {{ $entry.handle }}">
+    {{- $icon.Content | safeHTML -}}
+    {{- if eq $mode "list" }}<span class="social-handle">{{ $entry.handle }}</span>{{ end -}}
+  </a>
+  {{- else -}}
+  {{- errorf "missing social icon assets/icons/%s.svg (social id %q)" $entry.id $entry.id -}}
+  {{- end }}
+  {{- end }}
+</nav>
+{{- end -}}

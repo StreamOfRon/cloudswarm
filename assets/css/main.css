@@ -160,6 +160,29 @@ hr {
   content: "#";
 }
 
+/* Tag bar (blog list) */
+.tag-bar {
+  color: var(--dim);
+  margin: 0 0 1.5rem;
+}
+
+.tag-bar-label {
+  margin-right: 0.75rem;
+}
+
+.tag-bar-item {
+  color: var(--dim);
+  margin-right: 0.75rem;
+}
+
+.tag-bar-item::before {
+  content: "#";
+}
+
+.tag-count {
+  font-size: 0.85em;
+}
+
 /* Code */
 pre {
   background: var(--code-bg);
@@ -194,6 +217,42 @@ pre code {
 .site-footer .sep {
   color: var(--border);
   margin: 0 0.5rem;
+}
+
+/* Social links */
+.footer-meta {
+  margin-bottom: 0.75rem;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.social-list {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.social-link,
+.social-link:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--dim);
+}
+
+.social-link:hover {
+  color: var(--accent);
+}
+
+.social-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
 }
 
 /* 404 */

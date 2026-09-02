@@ -1,6 +1,16 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 {{ with .Content }}{{ . }}{{ end }}
+{{ if eq .Type "posts" }}
+  {{ with .Site.Taxonomies.tags }}
+  <nav class="tag-bar" aria-label="Tag filters">
+    <span class="tag-bar-label">filter by tag:</span>
+    {{ range .Alphabetical }}
+    <a class="tag-bar-item" href="{{ .Page.RelPermalink }}">{{ .Term }}<span class="tag-count"> ({{ .Count }})</span></a>
+    {{ end }}
+  </nav>
+  {{ end }}
+{{ end }}
 <ul class="post-list">
   {{ range .Pages }}
   <li>

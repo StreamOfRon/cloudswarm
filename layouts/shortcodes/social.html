@@ -1,0 +1,2 @@
+{{- /* {{< social >}} → glyph + handle; {{< social "icons" >}} → glyph only. */ -}}
+{{ partial "social.html" (dict "mode" (.Get 0 | default "list")) }}

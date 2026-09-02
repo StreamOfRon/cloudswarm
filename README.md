@@ -76,6 +76,30 @@ save there is also a production deploy.
 Drop files in `static/images/uploads/` (the CMS uploads there automatically)
 and reference root-relative: `/images/uploads/photo.png`.
 
+## Contact links
+
+One source of truth: `params.social` in `config.yaml`.
+
+```yaml
+params:
+  social:
+    - id: mastodon                                  # → assets/icons/mastodon.svg
+      name: "Mastodon"
+      url: "https://macaw.social/@streamofron"
+      handle: "streamofron@macaw.social"
+```
+
+- Every page footer renders the glyph row (`layouts/partials/social.html`,
+  mode `icons`); `{{< social >}}` in any content body renders glyphs **and**
+  handles (used by `/about/`). Keep that shortcode line if you edit About in
+  the CMS — it is what renders the handles there.
+- Glyphs are Simple Icons (CC0) paths vendored under `assets/icons/<id>.svg`,
+  inlined at build time with `fill="currentColor"`, so they inherit the theme
+  green instead of brand colours. New network = drop in the SVG + add the entry.
+- A `social` entry whose `id` has no matching icon **fails the build** — no
+  silently missing glyphs.
+- Links carry `rel="me"`, which is how Mastodon verifies profile links.
+
 ## Reference
 
 | Path | Role |
@@ -85,5 +109,7 @@ and reference root-relative: `/images/uploads/photo.png`.
 | `archetypes/` | front-matter scaffolds for `hugo new` |
 | `layouts/` | all templates — terminal theme markup |
 | `assets/css/main.css` | the whole stylesheet (hand-rolled, no theme) |
+| `assets/icons/` | brand glyphs for `params.social` (Simple Icons, CC0) |
+| `layouts/partials/social.html` | renders contact links (footer + `{{< social >}}`) |
 | `static/admin/` | Decap CMS loader + config |
 | `.github/workflows/deploy.yml` | build + deploy to Cloudflare Pages |

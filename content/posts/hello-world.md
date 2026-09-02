@@ -3,10 +3,7 @@ title: "Hello, World"
 date: 2026-09-01
 draft: false
 tags: ["meta"]
-description: "The cloudswarm site is live."
+description: "The beginning of rantings of a geek."
 ---
 
-First post on the new site. Cloudswarm is my personal corner of the web —
-static, green, and monospaced. Expect posts about software, systems, and
-occasional musings. The feed is at `/index.xml`; the content editor lives at
-`/admin/`.
+First post on the new site. I've been meaning for quite a while to set up a personal site/blog and finally got around to it. Mostly just want a space to rant about various topics of interest to me.  Computers/technology, science/scifi, medicine, dogs, etc... it'll probably all find its way here in varying amounts.

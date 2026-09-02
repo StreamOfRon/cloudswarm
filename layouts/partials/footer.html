@@ -1,5 +1,8 @@
 <footer class="site-footer">
-  <span>&copy; {{ now.Year }} {{ .Site.Title }}</span>
-  <span class="sep">|</span>
-  <a href="{{ "index.xml" | relURL }}">RSS</a>
+  <div class="footer-meta">
+    <span>&copy; {{ now.Year }} {{ .Site.Title }}</span>
+    <span class="sep">|</span>
+    <a href="{{ "index.xml" | relURL }}">RSS</a>
+  </div>
+  {{ partial "social.html" (dict "mode" "icons") }}
 </footer>

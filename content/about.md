@@ -3,6 +3,10 @@ title: "About"
 description: "About me."
 ---
 
-I'm StreamOfRon. This is my personal site and blog — a place for notes on
-software, infrastructure, and whatever else the swarm is thinking about.
-Built with Hugo, hosted on Cloudflare Pages, editable via Decap CMS.
+I'm Ron. This is my personal site and blog — a place for me to yell into the void, primarily...
+
+## Elsewhere
+
+Mastodon is the best way to reach me — DMs are open.
+
+{{< social >}}
