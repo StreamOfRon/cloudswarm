@@ -1,0 +1,9 @@
+{
+  "name": "cloudswarm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo --minify"
+  }
+}

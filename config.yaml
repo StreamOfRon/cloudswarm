@@ -1,0 +1,18 @@
+baseURL: "https://cloudswarm.pages.dev/"
+locale: en-us
+title: "Cloudswarm"
+pygmentsUseClasses: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+
+taxonomies:
+  tag: tags
+
+params:
+  description: "Personal site and blog of StreamOfRon."
+  github: "https://github.com/StreamOfRon"
